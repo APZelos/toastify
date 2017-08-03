@@ -128,4 +128,18 @@ root.toastify = function (options) {
 	 * The toasts that are on the queue list.
 	 */
 	var pendingToasts = [];
+
+	/**
+	 * Creates a unique string in combination with
+	 * the given name for element id.
+	 * 
+	 * @param {string} name The name that will be used for the unique id.
+	 */
+	function UUID(name) {
+        return (name + '__xxxx-xxxxxx').replace(/[x]/g, function (c) {
+            var r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    };
 }
