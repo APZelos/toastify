@@ -1,7 +1,7 @@
 "use strict";
 
 var root = typeof self == 'object' && self.self === self && self ||
-    typeof global == 'object' && global.global === global && global ||
+	typeof global == 'object' && global.global === global && global ||
 	this;
 
 /**
@@ -55,7 +55,77 @@ var root = typeof self == 'object' && self.self === self && self ||
  * types:
  * 		Custom types defined by the user.
  * 
+ * @param {object} options The setting options for the toastify.
  */
 root.toastify = function (options) {
+	/**
+	 * The id of the element that holds the toasts.
+	 */
+	var id = '';
 
+	/**
+	 * The toastify settings.
+	 */
+	var settings = {};
+
+	/**
+	 * The default toast types.
+	 */
+	var types = {
+		error: {
+			color: "red",
+			duration: 8000,
+			sticky: false,
+			button: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		warning: {
+			color: "orange",
+			duration: 6000,
+			sticky: false,
+			button: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		success: {
+			color: "green",
+			duration: 4000,
+			sticky: false,
+			button: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		message: {
+			color: "blue",
+			duration: 2000,
+			sticky: false,
+			button: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		sticky: {
+			color: 'teal',
+			duration: 0,
+			sticky: true,
+			button: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		}
+	}
+
+	/**
+	 * The toasts that are on the queue list.
+	 */
+	var pendingToasts = [];
 }
