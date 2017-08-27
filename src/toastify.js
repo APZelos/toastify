@@ -130,16 +130,40 @@ root.toastify = function (options) {
 	var pendingToasts = [];
 
 	/**
+	 * Configs the toastify settings based on the given options.
+	 * 
+	 * @param {object} options Given options.
+	 */
+	function configSettings(options) {
+		// Configs given options.
+		options = options || {};
+		options.position = options.position || {};
+		options.defaults = options.defaults || {};
+		options.defaults.animations = options.defaults.animations || {};
+		// Configs settings based on given options.
+		settings.root = options.root || 'body';
+		settings.max = options.max || 0;
+		settings.position.horizontal = options.position.horizontal || 'right';
+		settings.position.vertical = options.position.vertical || 'bottom';
+		settings.defaults.color = options.defaults.color || 'teal';
+		settings.defaults.sticky = options.defaults.sticky || false;
+		settings.defaults.closeOnClick = options.defaults.closeOnClick || false;
+		settings.defaults.duration = options.defaults.duration || 1000;
+		settings.defaults.animations.show = options.defaults.animations.show || 'show-toast';
+		settings.defaults.animations.hide = options.defaults.animations .hide|| 'hide-toast';
+	}
+
+	/**
 	 * Creates a unique string in combination with
 	 * the given name for element id.
 	 * 
 	 * @param {string} name The name that will be used for the unique id.
 	 */
 	function UUID(name) {
-        return (name + '__xxxx-xxxxxx').replace(/[x]/g, function (c) {
-            var r = Math.random() * 16 | 0,
-                v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    };
+		return (name + '__xxxx-xxxxxx').replace(/[x]/g, function (c) {
+			var r = Math.random() * 16 | 0,
+				v = c == 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
+	};
 }
