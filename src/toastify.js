@@ -150,7 +150,39 @@ root.toastify = function (options) {
 		settings.defaults.closeOnClick = options.defaults.closeOnClick || false;
 		settings.defaults.duration = options.defaults.duration || 1000;
 		settings.defaults.animations.show = options.defaults.animations.show || 'show-toast';
-		settings.defaults.animations.hide = options.defaults.animations .hide|| 'hide-toast';
+		settings.defaults.animations.hide = options.defaults.animations.hide || 'hide-toast';
+		// Creates settings functions.
+		// Returns a valid value for horizontal position.
+		settings.position.getHorizontal = function () {
+			var horizontal = settings.position.horizontal;
+			if (horizontal === 'right' || horizontal === 'left')
+				return horizontal;
+			return 'right';
+		}
+		// Returns a valid value for vertical position.
+		settings.position.getVertical = function () {
+			var vertical = settings.position.vertical;
+			if (vertical === 'top' || vertical === 'bottom')
+				return vertical;
+			return 'bottom';
+		}
+	}
+
+	/**
+	 * Creates a new toastify element with a unique id,
+	 * sets its position classes and appends to selected
+	 * root element.
+	 */
+	function init() {
+		id = UUID('toastify');
+		var root = document.querySelector(settings.root);
+		var toastifyEl = document.createElement('div');
+		// Sets attributes and classes of toastify element.
+		toastifyEl.setAttribute('id', id);
+		toastifyEl.classList.add('toastify');
+		toastifyEl.classList.add('toastify--' + settings.position.getHorizontal());
+		toastifyEl.classList.add('toastify--' + settings.position.getVertical());
+		root.appendChild(toastifyEl);
 	}
 
 	/**
