@@ -12,7 +12,7 @@ var root = typeof self == 'object' && self.self === self && self ||
  * options: {
  * 		root: '#toastify',
  * 		max: 0,
- * 		postition: {
+ * 		postilion: {
  * 			horizontal: 'right',
  * 			vertical: 'bottom'
  * 		},
@@ -50,7 +50,7 @@ var root = typeof self == 'object' && self.self === self && self ||
  *      Sets the horizontal ('left', 'right') and vertical ('top', 'bottom')
  *      position of the the toasts. The default values are 'right', 'bottom'.
  * defaults:
- *      The default toast type settings. Custom types that are missing a settin
+ *      The default toast type settings. Custom types that are missing a setting
  * 		will use the corresponding default value.
  * types:
  * 		Custom types defined by the user.
