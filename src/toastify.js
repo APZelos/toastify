@@ -246,6 +246,30 @@ var toasts = {
 		if (!document.contains(toastEl)) return;
 		toast.remove(toastEl);
 		count--;
+	},
+	/**
+	 * Creates a new toast.
+	 * 
+	 * @param {object} type The type of the toast that is going to be created.
+	 * @param {string} message The message that the toast is going to display.
+	 */
+	addToast (type, message) {
+		// Validates parameters.
+		if (!message)
+			return console.error('Toastify: no message was given for toast to display.');
+		if (!type)
+			return console.error('Toastify: toast type not found.');
+		// IF there is no room for the new toast
+		// adds it to the pending list.
+		if (!utilities.showToast()) {
+			pending.add({
+				type,
+				message
+			});
+			return;
+		}
+		toast.create(type, message);
+		count++;	
 	}
 }
 
