@@ -219,17 +219,17 @@ var toasts = {
 	// Array of toast pending to be show.
 	pending: [],
 	/**
-	 * Returns the oldest pending toast 
+	 * Adds the oldest pending toast 
 	 * if any exist and
 	 * if the count of current showing toasts are not
 	 * more that the maximum number of toasts that can be on screen at the same time .
 	 */
-	getNextToast: function () {
+	addNextToast: function () {
 		if (!utilities.showToast())
 			return undefined;
 		var nextToast = this.pending[0];
 		this.pending.splice(0, 1);
-		return nextToast;
+		this.addToast(nextToast.type, nextToast.message);
 	},
 	/**
 	 * Removes given toast from 
