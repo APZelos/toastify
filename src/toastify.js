@@ -205,7 +205,16 @@ var toast = {
 			}, type.duration);
 		// Adds an event lister to toast when the hide animation
 		// end to remove the toast from the screen.
-		utilities.onAnimationEnded(type.animations.hide, newToast, this.remove);
+		utilities.onAnimationEnded(type.animations.hide, newToast, toasts.remove);
+	},
+	/**
+	 * Removes given toast from the dom.
+	 * 
+	 * @param {object} toastEl The element that is going to be removed.
+	 */
+	remove: function(toastEl) {
+		var toastifyEl = document.getElementById(id);
+		toastifyEl.removeChild(toastEl);
 	}
 }
 
