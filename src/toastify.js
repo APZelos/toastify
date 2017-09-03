@@ -24,7 +24,7 @@ var settings = {
 			if (value === 'right' || value === 'left')
 				this.horizontal = value;
 			else
-				console.error(value + ' is not a valid value for horizontal position');
+				console.error('"' + value + '" is not a valid value for horizontal position');
 		},
 		/**
 		 * Sets vertical value after
@@ -37,8 +37,21 @@ var settings = {
 			if (value === 'top' || value === 'bottom')
 				this.vertical = value;
 			else
-				console.error(value + ' is not a valid value for vertical position');
+				console.error('"' + value + '" is not a valid value for vertical position');
 		},
+	},
+	/**
+	 * Configs settings with given options.
+	 * 
+	 * @param {object} options The given options.
+	 */
+	config: function(options) {
+		if (!options) return;
+		this.root = options.root || his.root;
+		this.max = options.max || his.max;
+		if (!options.position) return;
+		this.position.horizontal = this.position.setHorizontal(options.position.horizontal);
+		this.position.vertical = this.position.setHorizontal(options.position.vertical);
 	}
 }
 
