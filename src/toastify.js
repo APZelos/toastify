@@ -235,6 +235,17 @@ var toasts = {
 		var nextToast = this.pending[0];
 		this.pending.splice(0, 1);
 		return nextToast;
+	},
+	/**
+	 * Removes given toast from 
+	 * and updates the current toasts count.
+	 * 
+	 * @param {object} toastEl The element that is going to be removed.
+	 */
+	removeToast: function (toastEl) {
+		if (!document.contains(toastEl)) return;
+		toast.remove(toastEl);
+		count--;
 	}
 }
 
