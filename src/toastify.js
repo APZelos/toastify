@@ -232,8 +232,9 @@ var toasts = {
 		this.addToast(nextToast.type, nextToast.message);
 	},
 	/**
-	 * Removes given toast from 
-	 * and updates the current toasts count.
+	 * Removes given toast, 
+	 * updates the current toasts count
+	 * and calls to add the next pending toast.
 	 * 
 	 * @param {object} toastEl The element that is going to be removed.
 	 */
@@ -241,6 +242,7 @@ var toasts = {
 		if (!document.contains(toastEl)) return;
 		toast.remove(toastEl);
 		count--;
+		this.addNextToast();
 	},
 	/**
 	 * Creates a new toast.
