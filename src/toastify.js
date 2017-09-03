@@ -172,11 +172,6 @@ var toast = {
 	 * @param {string} message The message that the toast is going to display.
 	 */
 	create: function (type, message) {
-		// Validates parameters.
-		if (!message)
-			return console.error('Toastify: no message was given for toast to display.');
-		if (!type)
-			return console.error('Toastify: toast type not found.');
 		// Creates and configs new toast.
 		var toastId = utilities.UUID('toast');
 		var newToast = document.createElement('div');
