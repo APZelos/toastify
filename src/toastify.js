@@ -19,7 +19,7 @@ var settings = {
 		 * 
 		 * @param {object} value The given horizontal value
 		 */
-		setHorizontal: function(value) {
+		setHorizontal: function (value) {
 			if (!value) return;
 			if (value === 'right' || value === 'left')
 				this.horizontal = value;
@@ -32,7 +32,7 @@ var settings = {
 		 * 
 		 * @param {object} value The given vertical value
 		 */
-		setVertical: function(value) {
+		setVertical: function (value) {
 			if (!value) return;
 			if (value === 'top' || value === 'bottom')
 				this.vertical = value;
@@ -45,7 +45,7 @@ var settings = {
 	 * 
 	 * @param {object} options The given options.
 	 */
-	config: function(options) {
+	config: function (options) {
 		if (!options) return;
 		this.root = options.root || his.root;
 		this.max = options.max || his.max;
@@ -56,7 +56,19 @@ var settings = {
 }
 
 var utilities = {
-	
+	/**
+	 * Creates a unique string in combination with
+	 * the given name for element id.
+	 * 
+	 * @param {string} name The name that will be used for the unique id.
+	 */
+	UUID: function (name) {
+		return (name + '__xxxx-xxxxxx').replace(/[x]/g, function (c) {
+			var r = Math.random() * 16 | 0,
+				v = c == 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
+	};
 }
 
 var toast = {
@@ -79,7 +91,7 @@ var toast = {
 		this.duration = options.duration || this.duration;
 		this.sticky =
 			options.sticky !== undefined ?
-				options.sticky : 
+				options.sticky :
 				this.sticky;
 		this.closeOnClick =
 			options.closeOnClick !== undefined ?
@@ -302,17 +314,5 @@ root.toastify = function (options) {
 		root.appendChild(toastifyEl);
 	}
 
-	/**
-	 * Creates a unique string in combination with
-	 * the given name for element id.
-	 * 
-	 * @param {string} name The name that will be used for the unique id.
-	 */
-	function UUID(name) {
-		return (name + '__xxxx-xxxxxx').replace(/[x]/g, function (c) {
-			var r = Math.random() * 16 | 0,
-				v = c == 'x' ? r : (r & 0x3 | 0x8);
-			return v.toString(16);
-		});
-	};
+
 }
