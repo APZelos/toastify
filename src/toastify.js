@@ -134,7 +134,9 @@ var toast = {
 }
 
 var toasts = {
+	// Number of toast currently on screen.
 	count: 0,
+	// Array of toast pending to be show.
 	pending: [],
 	/**
 	 * Returns the oldest pending toast 
