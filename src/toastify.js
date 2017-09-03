@@ -6,6 +6,16 @@ var root = typeof self == 'object' && self.self === self && self ||
 
 var toastify = {}
 
+var settings = {
+	// Settings default values.
+	root: 'body',
+	max: 0,
+	position: {
+		horizontal: 'right',
+		vertical: 'bottom'
+	}
+}
+
 var toast = {
 	// Toast default values.
 	color: 'teal',
