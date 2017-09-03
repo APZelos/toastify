@@ -55,6 +55,10 @@ var settings = {
 	}
 }
 
+var utilities = {
+	
+}
+
 var toast = {
 	// Toast default values.
 	color: 'teal',
