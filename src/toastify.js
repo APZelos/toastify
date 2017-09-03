@@ -76,6 +76,32 @@ var utilities = {
 	showToast: function () {
 		return settings.max === 0
 			|| toasts.count < settings.max;
+	},
+	/**
+	 * Adds an event listener to given element
+	 * that executes given callback function
+	 * when given animation has ended.
+	 * 
+	 * @param {string} animation The name of the animation.
+	 * @param {object} el The element.
+	 * @param {function} callback The callback function.
+	 */
+	onAnimationEnded: function (animation, el, callback) {
+		el.addEventListener('animationend', function (el) {
+			if (el.animationName === animation) return callback(el);
+		});
+		el.addEventListener('mozanimationend', function (el) {
+			if (el.animationName === animation) return callback(el);
+		});
+		el.addEventListener('webkitAnimationEnd', function (el) {
+			if (el.animationName === animation) return callback(el);
+		});
+		el.addEventListener('oanimationend', function (el) {
+			if (el.animationName === animation) return callback(el);
+		});
+		el.addEventListener('MSAnimationEnd', function (el) {
+			if (el.animationName === animation) return callback(el);
+		});
 	}
 }
 
