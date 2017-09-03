@@ -133,6 +133,25 @@ var toast = {
 	}
 }
 
+var toasts = {
+	count: 0,
+	pending: [],
+	/**
+	 * Returns the oldest pending toast 
+	 * if any exist and
+	 * if the count of current showing toasts are not
+	 * more that the maximum number of toasts that can be on screen at the same time .
+	 */
+	getNextToast: function () {
+		if (this.pending.length === 0
+			|| (settings.max !== 0 && this.count >= settings.max))
+			return undefined;
+		var nextToast = this.pending[0];
+		this.pending.splice(0, 1);
+		return nextToast;
+	}
+}
+
 /**
  * Initializes the toastify lib
  * and returns a function 
