@@ -241,7 +241,7 @@ var toasts = {
 	removeToast: function (toastEl) {
 		if (!document.contains(toastEl)) return;
 		toast.remove(toastEl);
-		count--;
+		this.count--;
 		this.addNextToast();
 	},
 	/**
@@ -259,14 +259,14 @@ var toasts = {
 		// IF there is no room for the new toast
 		// adds it to the pending list.
 		if (!utilities.showToast()) {
-			pending.add({
+			this.pending.add({
 				type,
 				message
 			});
 			return;
 		}
 		toast.create(type, message);
-		count++;	
+		this.count++;	
 	}
 }
 
