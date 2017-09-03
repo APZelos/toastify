@@ -164,6 +164,48 @@ var toast = {
 		// with the given options.
 		this.config.call(newToastType, options);
 		return newToastType;
+	},
+	/**
+	 * Creates a new toast.
+	 * 
+	 * @param {object} type The type of the toast that is going to be created.
+	 * @param {string} message The message that the toast is going to display.
+	 */
+	create: function (type, message) {
+		// Validates parameters.
+		if (!message)
+			return console.error('Toastify: no message was given for toast to display.');
+		if (!type)
+			return console.error('Toastify: toast type not found.');
+		// Creates and configs new toast.
+		var toastId = utilities.UUID('toast');
+		var newToast = document.createElement('div');
+		newToast.setAttribute("id", toastId);
+		newToast.classList.add('toast');
+		newToast.classList.add(type.animations.show);
+		if (type.color.startsWith('#'))
+			newToast.style.backgroundColor = type.color;
+		else
+			newToast.classList.add(type.color);
+		newToast.innerHTML = message;
+		var toastifyEl = document.getElementById(id);
+		toastifyEl.appendChild(newToast);
+		// If toast type is sticky or must closeOnClick
+		// adds an event listener on click to play hide animation.
+		if (type.sticky || type.closeOnClick)
+			toast.addEventListener('click', function () {
+				this.classList.add(type.animations.hide);
+			});
+		// If toast type is not sticky added a timeout
+		// after the types duration to remove to play the hide animation.
+		if (!type.sticky)
+			setTimeout(function () {
+				var el = document.getElementById(toastId);
+				el.classList.add(type.animations.hide);
+			}, type.duration);
+		// Adds an event lister to toast when the hide animation
+		// end to remove the toast from the screen.
+		utilities.onAnimationEnded(type.animations.hide, newToast, this.remove);
 	}
 }
 
