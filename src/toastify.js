@@ -68,6 +68,14 @@ var utilities = {
 				v = c == 'x' ? r : (r & 0x3 | 0x8);
 			return v.toString(16);
 		});
+	},
+	/**
+	 * Indicates if there is free room f
+	 * or a new toast to be created.
+	 */
+	showToast: function () {
+		return settings.max === 0
+			|| toasts.count < settings.max;
 	}
 }
 
@@ -145,8 +153,7 @@ var toasts = {
 	 * more that the maximum number of toasts that can be on screen at the same time .
 	 */
 	getNextToast: function () {
-		if (this.pending.length === 0
-			|| (settings.max !== 0 && this.count >= settings.max))
+		if (!utilities.showToast())
 			return undefined;
 		var nextToast = this.pending[0];
 		this.pending.splice(0, 1);
