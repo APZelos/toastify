@@ -25,7 +25,20 @@ var settings = {
 				this.horizontal = value;
 			else
 				console.error(value + ' is not a valid value for horizontal position');
-		}
+		},
+		/**
+		 * Sets vertical value after
+		 * validating given value.
+		 * 
+		 * @param {object} value The given vertical value
+		 */
+		setVertical: function(value) {
+			if (!value) return;
+			if (value === 'top' || value === 'bottom')
+				this.vertical = value;
+			else
+				console.error(value + ' is not a valid value for vertical position');
+		},
 	}
 }
 
