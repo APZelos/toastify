@@ -4,6 +4,70 @@ var root = typeof self == 'object' && self.self === self && self ||
 	typeof global == 'object' && global.global === global && global ||
 	this;
 
+var toastify = {}
+
+var toast = {
+	// Toast default values.
+	color: 'teal',
+	duration: 0,
+	sticky: false,
+	closeOnClick: false,
+	animations: {
+		show: 'show-toast',
+		hide: 'hide-toast'
+	},
+	/**
+	 * Merges given options to this toast type.
+	 * 
+	 * @param {object} options The given toast options.
+	 */
+	config: function (options) {
+		this.color = options.color || this.color;
+		this.duration = options.duration || this.duration;
+		this.sticky =
+			options.sticky !== undefined ?
+				options.sticky : 
+				this.sticky;
+		this.closeOnClick =
+			options.closeOnClick !== undefined ?
+				options.closeOnClick :
+				this.sticky;
+		this.animations = this.animations || {};
+		this.animations.show =
+			(options.animations && options.animations.show) ?
+				options.animations.show :
+				this.animations.show;
+		this.animations.hide =
+			(options.animations && options.animations.hide) ?
+				options.animations.hide :
+				this.animations.hide;
+
+		return this;
+	},
+	/**
+	 * Creates and returns a new toast type
+	 * with the given options and the default values
+	 * for everything not given in options.
+	 * 
+	 * @param {object} options The given toast options for the new type.
+	 */
+	createType: function (options) {
+		// Creates a new toast type
+		// with the default toast values.
+		var newToastType = {
+			color: this.color,
+			duration: this.duration,
+			sticky: this.sticky,
+			closeOnClick: this.closeOnClick,
+			animations: this.animations
+		};
+		// Configs the new toast type
+		// with the given options.
+		this.config.call(newToastType, options);
+		return newToastType;
+	}
+}
+
 /**
  * Initializes the toastify lib
  * and returns a function 
