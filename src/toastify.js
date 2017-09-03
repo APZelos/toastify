@@ -12,7 +12,20 @@ var settings = {
 	max: 0,
 	position: {
 		horizontal: 'right',
-		vertical: 'bottom'
+		vertical: 'bottom',
+		/**
+		 * Sets horizontal value after
+		 * validating given value.
+		 * 
+		 * @param {object} value The given horizontal value
+		 */
+		setHorizontal: function(value) {
+			if (!value) return;
+			if (value === 'right' || value === 'left')
+				this.horizontal = value;
+			else
+				console.error(value + ' is not a valid value for horizontal position');
+		}
 	}
 }
 
