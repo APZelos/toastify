@@ -346,6 +346,62 @@ function Toastify(options) {
 			this.count++;
 		}
 	}
+
+	/**
+	 * The default toast types.
+	 */
+	var types = {
+		error: {
+			color: "red",
+			duration: 8000,
+			sticky: false,
+			closeOnClick: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		warning: {
+			color: "orange",
+			duration: 6000,
+			sticky: false,
+			closeOnClick: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		success: {
+			color: "green",
+			duration: 4000,
+			sticky: false,
+			closeOnClick: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		message: {
+			color: "blue",
+			duration: 2000,
+			sticky: false,
+			closeOnClick: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		},
+		sticky: {
+			color: 'teal',
+			duration: 0,
+			sticky: true,
+			closeOnClick: false,
+			animations: {
+				show: 'show-toast',
+				hide: 'hide-toast'
+			}
+		}
+	}
 }
 
 /**
@@ -412,61 +468,7 @@ root.toastify = function (options) {
 	 */
 	var settings = {};
 
-	/**
-	 * The default toast types.
-	 */
-	var types = {
-		error: {
-			color: "red",
-			duration: 8000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
-		},
-		warning: {
-			color: "orange",
-			duration: 6000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
-		},
-		success: {
-			color: "green",
-			duration: 4000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
-		},
-		message: {
-			color: "blue",
-			duration: 2000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
-		},
-		sticky: {
-			color: 'teal',
-			duration: 0,
-			sticky: true,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
-		}
-	}
+
 
 	/**
 	 * The toasts that are on the queue list.
