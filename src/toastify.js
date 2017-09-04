@@ -363,53 +363,24 @@ function Toastify(options) {
 	var types = {
 		error: {
 			color: "red",
-			duration: 8000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
+			duration: 8000
 		},
 		warning: {
 			color: "orange",
-			duration: 6000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
+			duration: 6000
 		},
 		success: {
 			color: "green",
-			duration: 4000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
+			duration: 4000
 		},
 		message: {
 			color: "blue",
-			duration: 2000,
-			sticky: false,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
+			duration: 2000
 		},
 		sticky: {
 			color: 'teal',
 			duration: 0,
-			sticky: true,
-			closeOnClick: false,
-			animations: {
-				show: 'show-toast',
-				hide: 'hide-toast'
-			}
+			sticky: true
 		},
 		/**
 		 * Configs the predefined types with the custom settings
