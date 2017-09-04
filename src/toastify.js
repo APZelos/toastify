@@ -6,6 +6,12 @@ var root = typeof self == 'object' && self.self === self && self ||
 
 var toastify = {}
 
+
+/**
+ * The id of the toastify element.
+ */
+var id = '';
+
 var settings = {
 	/**
 	 * The root element that holds the toastify.
