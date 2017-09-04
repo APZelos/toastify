@@ -7,17 +7,36 @@ var root = typeof self == 'object' && self.self === self && self ||
 var toastify = {}
 
 var settings = {
-	// Settings default values.
+	/**
+	 * The root element that holds the toastify.
+	 * @default body element.
+	 */
 	root: 'body',
+	/**
+	 * The maximum number of toasts that can be on screen at the same time (0 for unlimited).
+ 	 * @default 0.
+	 */
 	max: 0,
+	/**
+	 * The position of the toastify relative to the root element.
+	 * @default bottom - right.
+	 */
 	position: {
+		/**
+		 * The horizontal position.
+		 * @default right.
+		 */
 		horizontal: 'right',
+		/**
+		 * The vertical position.
+		 * @default bottom.
+		 */
 		vertical: 'bottom',
 		/**
 		 * Sets horizontal value after
 		 * validating given value.
 		 * 
-		 * @param {object} value The given horizontal value
+		 * @param {string} value The given horizontal value.
 		 */
 		setHorizontal: function (value) {
 			if (!value) return;
@@ -30,7 +49,7 @@ var settings = {
 		 * Sets vertical value after
 		 * validating given value.
 		 * 
-		 * @param {object} value The given vertical value
+		 * @param {string} value The given vertical value.
 		 */
 		setVertical: function (value) {
 			if (!value) return;
@@ -70,8 +89,8 @@ var utilities = {
 		});
 	},
 	/**
-	 * Indicates if there is free room f
-	 * or a new toast to be created.
+	 * Indicates if the maximum number of toasts 
+	 * that can be on screen at the same time has been reached.
 	 */
 	showToast: function () {
 		return settings.max === 0
@@ -84,7 +103,7 @@ var utilities = {
 	 * 
 	 * @param {string} animation The name of the animation.
 	 * @param {object} el The element.
-	 * @param {function} callback The callback function.
+	 * @param {Function} callback The callback function.
 	 */
 	onAnimationEnded: function (animation, el, callback) {
 		el.addEventListener('animationend', function (el) {
@@ -107,12 +126,41 @@ var utilities = {
 
 var toast = {
 	// Toast default values.
+	/**
+	 * Τhe background color.
+	 * @default teal.
+	 */
 	color: 'teal',
+	/**
+	 * The duration that the toast will be on screen in ms.
+	 * @default 3000
+	 */
 	duration: 0,
+	/**
+	 * If true the toast will be on screen until user clicks on it.
+	 * @default false.
+	 */
 	sticky: false,
+	/**
+	 * If true when user clicks on toast it will be removed 
+	 * no matter the other options are.
+	 * @default false.
+	 */
 	closeOnClick: false,
+	/**
+	 * The show and hide animations of the toast.
+	 * @default show-toast, hide-toast.
+	 */
 	animations: {
+		/**
+		 * The show animations.
+		 * @default show-toast.
+		 */
 		show: 'show-toast',
+		/**
+		 * The hide animations.
+		 * @default hide-toast.
+		 */
 		hide: 'hide-toast'
 	},
 	/**
@@ -166,7 +214,7 @@ var toast = {
 		return newToastType;
 	},
 	/**
-	 * Creates a new toast.
+	 * Creates a new toast and adds it to the DOM.
 	 * 
 	 * @param {object} type The type of the toast that is going to be created.
 	 * @param {string} message The message that the toast is going to display.
@@ -191,19 +239,19 @@ var toast = {
 			toast.addEventListener('click', function () {
 				this.classList.add(type.animations.hide);
 			});
-		// If toast type is not sticky added a timeout
-		// after the types duration to remove to play the hide animation.
+		// If toast type is not sticky adds a timeout
+		// after the types duration to play the hide animation.
 		if (!type.sticky)
 			setTimeout(function () {
 				var el = document.getElementById(toastId);
 				el.classList.add(type.animations.hide);
 			}, type.duration);
 		// Adds an event lister to toast when the hide animation
-		// end to remove the toast from the screen.
+		// end to remove the toast from the DOM.
 		utilities.onAnimationEnded(type.animations.hide, newToast, toasts.remove);
 	},
 	/**
-	 * Removes given toast from the dom.
+	 * Removes given toast from the DOM.
 	 * 
 	 * @param {object} toastEl The element that is going to be removed.
 	 */
@@ -214,15 +262,19 @@ var toast = {
 }
 
 var toasts = {
-	// Number of toast currently on screen.
+	/**
+	 * Number of toast currently on screen.
+	 */
 	count: 0,
-	// Array of toast pending to be show.
+	/**
+	 * Array of toast pending to be show.
+	 */
 	pending: [],
 	/**
 	 * Adds the oldest pending toast 
 	 * if any exist and
 	 * if the count of current showing toasts are not
-	 * more that the maximum number of toasts that can be on screen at the same time .
+	 * more that the maximum number of toasts that can be on screen at the same time.
 	 */
 	addNextToast: function () {
 		if (!utilities.showToast())
@@ -245,12 +297,15 @@ var toasts = {
 		this.addNextToast();
 	},
 	/**
-	 * Creates a new toast.
+	 * Tries to add a new toast.
+	 * Validates the given type and message.
+	 * If there the maximum number of toasts that can be on screen at the same time
+	 * has been reached add toast to the pending list.
 	 * 
 	 * @param {object} type The type of the toast that is going to be created.
 	 * @param {string} message The message that the toast is going to display.
 	 */
-	addToast (type, message) {
+	addToast: function (type, message) {
 		// Validates parameters.
 		if (!message)
 			return console.error('Toastify: no message was given for toast to display.');
@@ -308,10 +363,10 @@ var toasts = {
  * 
  * root: 
  *      The element that will hold the toasts.
- *      Default: body element.
+ *      @default body element.
  * max:
  *      Sets the maximum number of toasts that can be on screen at the same time (0 for unlimited).
- *      Default: 0.
+ *      @default 0.
  * position:
  *      Sets the horizontal ('left', 'right') and vertical ('top', 'bottom')
  *      position of the the toasts. The default values are 'right', 'bottom'.
