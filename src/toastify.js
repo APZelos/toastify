@@ -442,8 +442,8 @@ function Toastify(options) {
 		// Sets attributes and classes of toastify element.
 		toastifyEl.setAttribute('id', id);
 		toastifyEl.classList.add('toastify');
-		toastifyEl.classList.add('toastify--' + settings.position.getHorizontal());
-		toastifyEl.classList.add('toastify--' + settings.position.getVertical());
+		toastifyEl.classList.add('toastify--' + settings.position.horizontal);
+		toastifyEl.classList.add('toastify--' + settings.position.vertical);
 		root.appendChild(toastifyEl);
 	}
 
