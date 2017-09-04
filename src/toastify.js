@@ -236,7 +236,10 @@ function Toastify(options) {
 				duration: this.duration,
 				sticky: this.sticky,
 				closeOnClick: this.closeOnClick,
-				animations: this.animations
+				animations: {
+					show: this.animations.show,
+					hide: this.animations.hide
+				}
 			};
 			// Configs the new toast type
 			// with the given options.
