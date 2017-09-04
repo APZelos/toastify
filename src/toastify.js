@@ -232,20 +232,20 @@ var toast = {
 	create: function (type, message) {
 		// Creates and configs new toast.
 		var toastId = utilities.UUID('toast');
-		var newToast = document.createElement('div');
-		newToast.setAttribute("id", toastId);
-		newToast.classList.add('toast');
-		newToast.classList.add(type.animations.show);
+		var newToastEl = document.createElement('div');
+		newToastEl.setAttribute("id", toastId);
+		newToastEl.classList.add('toast');
+		newToastEl.classList.add(type.animations.show);
 		// If type color is a hex color
 		// adds it as an inline style
 		// otherwise adds it as a class.
 		if (type.color.startsWith('#'))
-			newToast.style.backgroundColor = type.color;
+			newToastEl.style.backgroundColor = type.color;
 		else
-			newToast.classList.add(type.color);
-		newToast.innerHTML = message;
+			newToastEl.classList.add(type.color);
+		newToastEl.innerHTML = message;
 		var toastifyEl = utilities.getToastifyEl();
-		toastifyEl.appendChild(newToast);
+		toastifyEl.appendChild(newToastEl);
 		// If toast type is sticky or must closeOnClick
 		// adds an event listener on click to play hide animation.
 		if (type.sticky || type.closeOnClick)
@@ -261,7 +261,7 @@ var toast = {
 			}, type.duration);
 		// Adds an event lister to toast when the hide animation
 		// end to remove the toast from the DOM.
-		utilities.onAnimationEnded(type.animations.hide, newToast, toasts.remove);
+		utilities.onAnimationEnded(type.animations.hide, newToastEl, toasts.remove);
 	},
 	/**
 	 * Removes given toast from the DOM.
