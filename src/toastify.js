@@ -445,6 +445,11 @@ function Toastify(options) {
 		toastifyEl.classList.add('toastify--' + settings.position.getVertical());
 		root.appendChild(toastifyEl);
 	}
+
+	settings.config(options);
+	toast.config(options.defaults);
+	types.config(options.types);
+	init();
 }
 
 /**
