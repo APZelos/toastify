@@ -413,6 +413,19 @@ function Toastify(options) {
 				show: 'show-toast',
 				hide: 'hide-toast'
 			}
+		},
+		/**
+		 * Configs the predefined types with the custom settings
+		 * and adds any new type.
+		 * 
+		 * @param {object} customTypes The custom types and the custom settings for the predefined types.
+		 */
+		config: function(customTypes) {
+			if (!customTypes) return;
+			utilities.forEachProperty(customTypes, function (type) {
+				if (types[type]) toast.config.call(types[type], customTypes[type]);
+				else types[type] = toast.createType(customTypes[type]);
+			});
 		}
 	}
 
