@@ -145,8 +145,8 @@ function Toastify(options) {
 		 * @param {function} callback A callback that gets the name of the property as argument.
 		 */
 		forEachProperty: function (object, callback) {
-			for (var property in customTypes) {
-				if (customTypes.hasOwnProperty(property)) {
+			for (var property in object) {
+				if (object.hasOwnProperty(property)) {
 					callback(property);
 				}
 			}
@@ -443,6 +443,7 @@ function Toastify(options) {
 		root.appendChild(toastifyEl);
 	}
 
+	// Runs configurations and initialize.
 	settings.config(options);
 	toast.config(options.defaults);
 	types.config(options.types);
