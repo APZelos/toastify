@@ -141,6 +141,19 @@ function Toastify(options) {
 			el.addEventListener('MSAnimationEnd', function (el) {
 				if (el.animationName === animation) return callback(el);
 			});
+		},
+		/**
+		 * Loops thought the properties of an object.
+		 * 
+		 * @param {object} object The object we want to loop.
+		 * @param {function} callback A callback that gets the name of the property as argument.
+		 */
+		forEachProperty: function (object, callback) {
+			for (var property in customTypes) {
+				if (customTypes.hasOwnProperty(property)) {
+					callback(property);
+				}
+			}
 		}
 	}
 
@@ -531,7 +544,7 @@ root.toastify = function (options) {
 		}
 	}
 
-	
+
 
 
 }
