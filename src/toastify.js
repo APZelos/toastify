@@ -402,6 +402,23 @@ function Toastify(options) {
 			}
 		}
 	}
+
+	/**
+	 * Creates a new toastify element with a unique id,
+	 * sets its position classes and appends to selected
+	 * root element.
+	 */
+	function init() {
+		id = UUID('toastify');
+		var root = document.querySelector(settings.root);
+		var toastifyEl = document.createElement('div');
+		// Sets attributes and classes of toastify element.
+		toastifyEl.setAttribute('id', id);
+		toastifyEl.classList.add('toastify');
+		toastifyEl.classList.add('toastify--' + settings.position.getHorizontal());
+		toastifyEl.classList.add('toastify--' + settings.position.getVertical());
+		root.appendChild(toastifyEl);
+	}
 }
 
 /**
@@ -514,22 +531,7 @@ root.toastify = function (options) {
 		}
 	}
 
-	/**
-	 * Creates a new toastify element with a unique id,
-	 * sets its position classes and appends to selected
-	 * root element.
-	 */
-	function init() {
-		id = UUID('toastify');
-		var root = document.querySelector(settings.root);
-		var toastifyEl = document.createElement('div');
-		// Sets attributes and classes of toastify element.
-		toastifyEl.setAttribute('id', id);
-		toastifyEl.classList.add('toastify');
-		toastifyEl.classList.add('toastify--' + settings.position.getHorizontal());
-		toastifyEl.classList.add('toastify--' + settings.position.getVertical());
-		root.appendChild(toastifyEl);
-	}
+	
 
 
 }
