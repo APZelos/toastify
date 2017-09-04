@@ -390,6 +390,14 @@ function Toastify(options) {
 		 */
 		config: function(customTypes) {
 			if (!customTypes) return;
+			// Loops through the predefined types
+			// and configs the with the default values.
+			utilities.forEachProperty(types, function (type) {
+				types[type] = toast.createType(types[type]);
+			});
+			// Loops through the custom types 
+			// and if type already exist configs it
+			// else creates a new type.
 			utilities.forEachProperty(customTypes, function (type) {
 				if (types[type]) toast.config.call(types[type], customTypes[type]);
 				else types[type] = toast.createType(customTypes[type]);
