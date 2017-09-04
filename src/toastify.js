@@ -236,6 +236,9 @@ var toast = {
 		newToast.setAttribute("id", toastId);
 		newToast.classList.add('toast');
 		newToast.classList.add(type.animations.show);
+		// If type color is a hex color
+		// adds it as an inline style
+		// otherwise adds it as a class.
 		if (type.color.startsWith('#'))
 			newToast.style.backgroundColor = type.color;
 		else
