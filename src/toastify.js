@@ -290,8 +290,7 @@ var toasts = {
 	 * more that the maximum number of toasts that can be on screen at the same time.
 	 */
 	addNextToast: function () {
-		if (!utilities.showToast())
-			return undefined;
+		if (!utilities.showToast()) return;
 		var nextToast = this.pending[0];
 		this.pending.splice(0, 1);
 		this.addToast(nextToast.type, nextToast.message);
@@ -324,7 +323,7 @@ var toasts = {
 			return console.error('Toastify: no message was given for toast to display.');
 		if (!type)
 			return console.error('Toastify: toast type not found.');
-		// IF there is no room for the new toast
+		// If there is no room for the new toast
 		// adds it to the pending list.
 		if (!utilities.showToast()) {
 			this.pending.add({
