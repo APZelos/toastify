@@ -146,7 +146,7 @@ function Toastify(options) {
 		 */
 		forEachProperty: function (object, callback) {
 			for (var property in object) {
-				if (object.hasOwnProperty(property)) {
+				if (object.hasOwnProperty(property) && typeof object[property] !== 'function') {
 					callback(property);
 				}
 			}
