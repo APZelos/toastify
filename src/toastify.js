@@ -409,7 +409,7 @@ root.toastify = function (options) {
 			color: "red",
 			duration: 8000,
 			sticky: false,
-			button: false,
+			closeOnClick: false,
 			animations: {
 				show: 'show-toast',
 				hide: 'hide-toast'
@@ -419,7 +419,7 @@ root.toastify = function (options) {
 			color: "orange",
 			duration: 6000,
 			sticky: false,
-			button: false,
+			closeOnClick: false,
 			animations: {
 				show: 'show-toast',
 				hide: 'hide-toast'
@@ -429,7 +429,7 @@ root.toastify = function (options) {
 			color: "green",
 			duration: 4000,
 			sticky: false,
-			button: false,
+			closeOnClick: false,
 			animations: {
 				show: 'show-toast',
 				hide: 'hide-toast'
@@ -439,7 +439,7 @@ root.toastify = function (options) {
 			color: "blue",
 			duration: 2000,
 			sticky: false,
-			button: false,
+			closeOnClick: false,
 			animations: {
 				show: 'show-toast',
 				hide: 'hide-toast'
@@ -449,7 +449,7 @@ root.toastify = function (options) {
 			color: 'teal',
 			duration: 0,
 			sticky: true,
-			button: false,
+			closeOnClick: false,
 			animations: {
 				show: 'show-toast',
 				hide: 'hide-toast'
