@@ -14,7 +14,7 @@ var settings = {
 	root: 'body',
 	/**
 	 * The maximum number of toasts that can be on screen at the same time (0 for unlimited).
- 	 * @default 0.
+	 * @default 0.
 	 */
 	max: 0,
 	/**
@@ -66,8 +66,12 @@ var settings = {
 	 */
 	config: function (options) {
 		if (!options) return;
-		this.root = options.root || his.root;
-		this.max = options.max || his.max;
+		// If a root options exist checks if the the element
+		// exist in the DOM.
+		this.root = (options.root && document.querySelector(options.root)) ?
+			options.root :
+			this.root;
+		this.max = options.max || this.max;
 		if (!options.position) return;
 		this.position.horizontal = this.position.setHorizontal(options.position.horizontal);
 		this.position.vertical = this.position.setHorizontal(options.position.vertical);
@@ -93,8 +97,8 @@ var utilities = {
 	 * that can be on screen at the same time has been reached.
 	 */
 	showToast: function () {
-		return settings.max === 0
-			|| toasts.count < settings.max;
+		return settings.max === 0 ||
+			toasts.count < settings.max;
 	},
 	/**
 	 * Adds an event listener to given element
@@ -173,21 +177,21 @@ var toast = {
 		this.duration = options.duration || this.duration;
 		this.sticky =
 			options.sticky !== undefined ?
-				options.sticky :
-				this.sticky;
+			options.sticky :
+			this.sticky;
 		this.closeOnClick =
 			options.closeOnClick !== undefined ?
-				options.closeOnClick :
-				this.sticky;
+			options.closeOnClick :
+			this.sticky;
 		this.animations = this.animations || {};
 		this.animations.show =
 			(options.animations && options.animations.show) ?
-				options.animations.show :
-				this.animations.show;
+			options.animations.show :
+			this.animations.show;
 		this.animations.hide =
 			(options.animations && options.animations.hide) ?
-				options.animations.hide :
-				this.animations.hide;
+			options.animations.hide :
+			this.animations.hide;
 
 		return this;
 	},
@@ -255,7 +259,7 @@ var toast = {
 	 * 
 	 * @param {object} toastEl The element that is going to be removed.
 	 */
-	remove: function(toastEl) {
+	remove: function (toastEl) {
 		var toastifyEl = document.getElementById(id);
 		toastifyEl.removeChild(toastEl);
 	}
@@ -321,7 +325,7 @@ var toasts = {
 			return;
 		}
 		toast.create(type, message);
-		this.count++;	
+		this.count++;
 	}
 }
 
