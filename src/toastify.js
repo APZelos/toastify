@@ -301,7 +301,7 @@ var toasts = {
 	 * @param {object} toastEl The element that is going to be removed.
 	 */
 	removeToast: function (toastEl) {
-		if (!document.contains(toastEl)) return;
+		if (!utilities.getToastifyEl().contains(toastEl)) return;
 		toast.remove(toastEl);
 		this.count--;
 		this.addNextToast();
