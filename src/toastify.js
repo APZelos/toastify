@@ -79,8 +79,8 @@ function Toastify(options) {
 				this.root;
 			this.max = options.max || this.max;
 			if (!options.position) return;
-			this.position.horizontal = this.position.setHorizontal(options.position.horizontal);
-			this.position.vertical = this.position.setHorizontal(options.position.vertical);
+			this.position.setHorizontal(options.position.horizontal);
+			this.position.setHorizontal(options.position.vertical);
 		}
 	}
 
