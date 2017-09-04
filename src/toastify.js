@@ -208,7 +208,7 @@ function Toastify(options) {
 			this.closeOnClick =
 				options.closeOnClick !== undefined ?
 				options.closeOnClick :
-				this.sticky;
+				this.closeOnClick;
 			this.animations = this.animations || {};
 			this.animations.show =
 				(options.animations && options.animations.show) ?
