@@ -436,7 +436,7 @@ function Toastify(options) {
 	 * root element.
 	 */
 	function init() {
-		id = UUID('toastify');
+		id = utilities.UUID('toastify');
 		var root = document.querySelector(settings.root);
 		var toastifyEl = document.createElement('div');
 		// Sets attributes and classes of toastify element.
