@@ -202,6 +202,7 @@ function Toastify(options) {
 		 * @param {object} options The given toast options.
 		 */
 		config: function (options) {
+			if (!options) return;
 			this.color = options.color || this.color;
 			this.duration = options.duration || this.duration;
 			this.sticky =
