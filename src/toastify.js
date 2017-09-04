@@ -80,6 +80,12 @@ var settings = {
 
 var utilities = {
 	/**
+	 * Returns the toastify element.
+	 */
+	getToastifyEl: function () {
+		return document.getElementById(id);
+	},
+	/**
 	 * Creates a unique string in combination with
 	 * the given name for element id.
 	 * 
@@ -235,7 +241,7 @@ var toast = {
 		else
 			newToast.classList.add(type.color);
 		newToast.innerHTML = message;
-		var toastifyEl = document.getElementById(id);
+		var toastifyEl = utilities.getToastifyEl();
 		toastifyEl.appendChild(newToast);
 		// If toast type is sticky or must closeOnClick
 		// adds an event listener on click to play hide animation.
@@ -260,7 +266,7 @@ var toast = {
 	 * @param {object} toastEl The element that is going to be removed.
 	 */
 	remove: function (toastEl) {
-		var toastifyEl = document.getElementById(id);
+		var toastifyEl = utilities.getToastifyEl();
 		toastifyEl.removeChild(toastEl);
 	}
 }
