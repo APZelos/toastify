@@ -49,7 +49,7 @@ function Toastify(options) {
 				if (value === 'right' || value === 'left')
 					this.horizontal = value;
 				else
-					console.error('"' + value + '" is not a valid value for horizontal position');
+					console.error('Toastify: "' + value + '" is not a valid value for horizontal position');
 			},
 			/**
 			 * Sets vertical value after
@@ -62,7 +62,7 @@ function Toastify(options) {
 				if (value === 'top' || value === 'bottom')
 					this.vertical = value;
 				else
-					console.error('"' + value + '" is not a valid value for vertical position');
+					console.error('Toastify: "' + value + '" is not a valid value for vertical position');
 			},
 		},
 		/**
