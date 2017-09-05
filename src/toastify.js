@@ -431,6 +431,9 @@ function Toastify(options) {
 
 	// Runs configurations and initialize.
 	settings.config(options);
+	// Ensures that the fallowing
+	// calls wont throw undefined error.
+	options = options || {};
 	toast.config(options.defaults);
 	types.config(options.types);
 	init();
