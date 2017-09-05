@@ -259,10 +259,14 @@ function Toastify(options) {
 			newToastEl.setAttribute("id", toastId);
 			newToastEl.classList.add('toast');
 			newToastEl.classList.add(type.animations.show);
-			// If type color is a hex color
+			// If type color is a HEX, RGB, RGBA, HSL, HSLA color
 			// adds it as an inline style
 			// otherwise adds it as a class.
-			if (type.color.startsWith('#'))
+			if (type.color.startsWith('#') ||
+				type.color.startsWith('rgb(') ||
+				type.color.startsWith('rgba(') ||
+				type.color.startsWith('hsl(') ||
+				type.color.startsWith('hsla('))
 				newToastEl.style.backgroundColor = type.color;
 			else
 				newToastEl.classList.add(type.color);
@@ -391,7 +395,7 @@ function Toastify(options) {
 		 * 
 		 * @param {object} customTypes The custom types and the custom settings for the predefined types.
 		 */
-		config: function(customTypes) {
+		config: function (customTypes) {
 			// Loops through the predefined types
 			// and configs the with the default values.
 			utilities.forEachProperty(types, function (type) {
