@@ -74,7 +74,9 @@ function Toastify(options) {
 			if (!options) return;
 			// If a root options exist checks if the the element
 			// exist in the DOM.
-			this.root = (options.root && document.querySelector(options.root)) ?
+			var getOptionsRoot = options.root && document.querySelector(options.root);
+			if (!getOptionsRoot) console.error('Toastify: "' + options.root + '" was not found in the DOM, "' + this.root + '" element will be used instead');
+			this.root = getOptionsRoot ?
 				options.root :
 				this.root;
 			this.max = options.max || this.max;
