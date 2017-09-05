@@ -439,4 +439,34 @@ function Toastify(options) {
 	toast.config(options.defaults);
 	types.config(options.types);
 	init();
+
+	// The return function of Toastify.
+	// It accepts toasts in the form:
+	//		* of a single toast (type, message)
+	// 		* of an array of toast objects ([ { type, message }, { type, message } ])
+	// The type of a toast can be given:
+	// 		* as a string with the name of the type (if the type is predefined)
+	// 		* as an object with the desired toast options (all the not included options will be filled with the default toast values)
+	return function (type, message) {
+		// If type is an Array then users
+		// gave a list of toasts. It enumerates
+		// the array and tries to add every toast in the array.
+		if (type instanceof Array)
+			for (var i = 0; i < type.length; i++)
+				tryToAddToast(type[i].type, type[i].message);
+		else tryToAddToast(type, message);
+
+		/**
+		 * Tries to add given toast. 
+		 * If given type is a string tries to retrieve type from the predefined ones.
+		 * Else it assumes that type is options for a new custom type and tries to create that type. 
+		 * 
+		 * @param {any} type The type of the toast that is going to be created.
+		 * @param {string} message The message that the toast is going to display.
+		 */
+		function tryToAddToast(type, message) {
+			if (typeof type === 'string') toasts.addToast(types[type], message);
+			else toasts.addToast(toast.createType(type), message);
+		}
+	}
 }
