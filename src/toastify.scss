@@ -145,3 +145,27 @@
         }
     }
 }
+
+//===============
+// ANIMATIONS
+//===============
+@include keyframes(show-toast) {
+    0% {
+        @include transform(translate3d(250px, 0px, 0px));
+    }
+    50% {
+        @include transform(translate3d(-125px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+
+@include keyframes(hide-toast) {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(250px, 0px, 0px));
+    }
+}
