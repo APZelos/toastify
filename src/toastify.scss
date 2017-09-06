@@ -40,23 +40,18 @@
     position: fixed;
     box-sizing: border-box;
     width: 250px;
-
     &--top {
         top: 10px;
     }
-
     &--bottom {
         bottom: 10px;
     }
-
     &--left {
         left: 10px;
     }
-
     &--right {
         right: 10px;
     }
-
     &__toast {
         @include border-radius(2px);
         box-sizing: border-box;
@@ -66,5 +61,22 @@
         font-size: 1rem;
         color: white;
         word-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .toastify {
+        width: 100%;
+        &--top,
+        &--bottom,
+        &--left,
+        &--right {
+            top: 0;
+            left: 0;
+        }
+        &__toast {
+            @include border-radius(0px);
+            margin: 0;
+        }
     }
 }
