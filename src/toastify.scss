@@ -69,6 +69,14 @@
         font-size: 1rem;
         color: white;
         word-wrap: break-word;
+        // Animations
+        &.show-toast {
+            @include animation(show-toast 1s 0s cubic-bezier(0.3, 0, 0.11, 1.14));
+        }
+        &.hide-toast {
+            @include animation(hide-toast 1s 0s cubic-bezier(0.3, 0, 0.11, 1.14));
+        }
+        // Colors
         &.red {
             background-color: #F44336;
         }
