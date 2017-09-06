@@ -38,8 +38,8 @@
 .toastify {
     z-index: 10000;
     position: fixed;
-    width: 250px;
     box-sizing: border-box;
+    width: 250px;
 
     &--top {
         top: 10px;
@@ -58,9 +58,13 @@
     }
 
     .toast {
-        width: 100%;
+        @include border-radius(2px);
+        box-sizing: border-box;
+        margin-top: 2px;
         padding: 15px 20px;
+        width: 100%;
         font-size: 1rem;
         color: white;
+        word-wrap: break-word;
     }
 }
