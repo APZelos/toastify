@@ -36,8 +36,10 @@
 // STYLES
 //===============
 .toastify {
+    z-index: 10000;
     position: fixed;
     width: 250px;
+    box-sizing: border-box;
 
     &--top {
         top: 10px;
