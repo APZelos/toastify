@@ -16,6 +16,14 @@
     }
 }
 
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
 @mixin animation($animations...) {
     -webkit-animation: $animations;
     -moz-animation: $animations;
