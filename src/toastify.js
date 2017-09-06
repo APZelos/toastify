@@ -166,7 +166,7 @@ function Toastify(options) {
 		 * The duration that the toast will be on screen in ms.
 		 * @default 3000
 		 */
-		duration: 0,
+		duration: 3000,
 		/**
 		 * If true the toast will be on screen until user clicks on it.
 		 * @default false.
