@@ -57,7 +57,7 @@
         right: 10px;
     }
 
-    .toast {
+    &__toast {
         @include border-radius(2px);
         box-sizing: border-box;
         margin-top: 2px;

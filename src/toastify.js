@@ -259,7 +259,7 @@ function Toastify(options) {
 			var toastId = utilities.UUID('toast');
 			var newToastEl = document.createElement('div');
 			newToastEl.setAttribute("id", toastId);
-			newToastEl.classList.add('toast');
+			newToastEl.classList.add('toastify__toast');
 			newToastEl.classList.add(type.animations.show);
 			// If type color is a HEX, RGB, RGBA, HSL, HSLA color
 			// adds it as an inline style
