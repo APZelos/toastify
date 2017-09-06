@@ -25,7 +25,7 @@ function Toastify(options) {
 		max: 0,
 		/**
 		 * The position of the toastify relative to the root element.
-		 * @default bottom - right.
+		 * @default top - right.
 		 */
 		position: {
 			/**
@@ -35,9 +35,9 @@ function Toastify(options) {
 			horizontal: 'right',
 			/**
 			 * The vertical position.
-			 * @default bottom.
+			 * @default top.
 			 */
-			vertical: 'bottom',
+			vertical: 'top',
 			/**
 			 * Sets horizontal value after
 			 * validating given value.
