@@ -16,6 +16,14 @@
     }
 }
 
+@mixin animation($animations...) {
+    -webkit-animation: $animations;
+    -moz-animation: $animations;
+    -o-animation: $animations;
+    -ms-animation: $animations;
+    animation: $animations;
+}
+
 //===============
 // STYLES
 //===============
