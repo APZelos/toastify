@@ -25,17 +25,17 @@
     color: white;
     word-wrap: break-word; }
     .toastify__toast.show-toast {
-      -webkit-animation: show-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -moz-animation: show-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -o-animation: show-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -ms-animation: show-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      animation: show-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1); }
+      -webkit-animation: show-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -moz-animation: show-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -o-animation: show-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -ms-animation: show-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      animation: show-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1); }
     .toastify__toast.hide-toast {
-      -webkit-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -moz-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -o-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      -ms-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1);
-      animation: hide-toast 1s 0s cubic-bezier(0.1, 0.69, 0, 1); }
+      -webkit-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -moz-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -o-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      -ms-animation: hide-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1);
+      animation: hide-toast 1s 0s cubic-bezier(0.1, 0.8, 0.01, 1); }
     .toastify__toast.red {
       background-color: #F44336; }
     .toastify__toast.pink {
