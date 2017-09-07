@@ -321,6 +321,7 @@ function Toastify(options) {
 		addNextToast: function () {
 			if (!utilities.showToast()) return;
 			var nextToast = this.pending[0];
+			if (!nextToast) return;
 			this.pending.splice(0, 1);
 			this.addToast(nextToast.type, nextToast.message);
 		},
