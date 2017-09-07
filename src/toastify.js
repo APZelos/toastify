@@ -124,20 +124,20 @@ function Toastify(options) {
 		 * @param {Function} callback The callback function.
 		 */
 		onAnimationEnded: function (animation, el, callback) {
-			el.addEventListener('animationend', function (el) {
-				if (el.animationName === animation) return callback(el);
+			el.addEventListener('animationend', function (event) {
+				if (event.animationName === animation) return callback(el);
 			});
-			el.addEventListener('mozanimationend', function (el) {
-				if (el.animationName === animation) return callback(el);
+			el.addEventListener('mozanimationend', function (event) {
+				if (event.animationName === animation) return callback(el);
 			});
-			el.addEventListener('webkitAnimationEnd', function (el) {
-				if (el.animationName === animation) return callback(el);
+			el.addEventListener('webkitAnimationEnd', function (event) {
+				if (event.animationName === animation) return callback(el);
 			});
-			el.addEventListener('oanimationend', function (el) {
-				if (el.animationName === animation) return callback(el);
+			el.addEventListener('oanimationend', function (event) {
+				if (event.animationName === animation) return callback(el);
 			});
-			el.addEventListener('MSAnimationEnd', function (el) {
-				if (el.animationName === animation) return callback(el);
+			el.addEventListener('MSAnimationEnd', function (event) {
+				if (event.animationName === animation) return callback(el);
 			});
 		},
 		/**
