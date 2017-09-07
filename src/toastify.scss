@@ -182,3 +182,23 @@ $animation-cubic-bezier: cubic-bezier(.1, .8, .01, 1);
         @include transform(translate3d(#{ $toastify-width + (2 * $toastify-space) }, 0px, 0px));
     }
 }
+
+@media only screen and (max-width: 992px) {
+    @include keyframes(show-toast) {
+        0% {
+            @include transform(translate3d(100%, 0px, 0px));
+        }
+        100% {
+            @include transform(translate3d(0px, 0px, 0px));
+        }
+    }
+    
+    @include keyframes(hide-toast) {
+        0% {
+            @include transform(translate3d(0px, 0px, 0px));
+        }
+        100% {
+            @include transform(translate3d(100%, 0px, 0px));
+        }
+    }
+}
