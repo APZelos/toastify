@@ -1,4 +1,12 @@
 //===============
+// VARIABLES
+//===============
+$toastify-width: 250px;
+$toastify-space: 10px;
+$animation-duration: 1s;
+$animation-cubic-bezier: cubic-bezier(.1,.69,0,1);
+
+//===============
 // MIXINS
 //===============
 @mixin keyframes($animation-name) {
@@ -47,18 +55,18 @@
     z-index: 10000;
     position: fixed;
     box-sizing: border-box;
-    width: 250px;
+    width: $toastify-width;
     &--top {
-        top: 10px;
+        top: $toastify-space;
     }
     &--bottom {
-        bottom: 10px;
+        bottom: $toastify-space;
     }
     &--left {
-        left: 10px;
+        left: $toastify-space;
     }
     &--right {
-        right: 10px;
+        right: $toastify-space;
     }
     &__toast {
         @include border-radius(2px);
@@ -71,10 +79,10 @@
         word-wrap: break-word;
         // Animations
         &.show-toast {
-            @include animation(show-toast 1s 0s cubic-bezier(0.3, 0, 0.11, 1.14));
+            @include animation(show-toast $animation-duration 0s $animation-cubic-bezier);
         }
         &.hide-toast {
-            @include animation(hide-toast 1s 0s cubic-bezier(0.3, 0, 0.11, 1.14));
+            @include animation(hide-toast $animation-duration 0s $animation-cubic-bezier);
         }
         // Colors
         &.red {
@@ -159,10 +167,10 @@
 //===============
 @include keyframes(show-toast) {
     0% {
-        @include transform(translate3d(250px, 0px, 0px));
+        @include transform(translate3d(270px, 0px, 0px));
     }
     50% {
-        @include transform(translate3d(-125px, 0px, 0px));
+        @include transform(translate3d(-25px, 0px, 0px));
     }
     100% {
         @include transform(translate3d(0px, 0px, 0px));
@@ -174,6 +182,6 @@
         @include transform(translate3d(0px, 0px, 0px));
     }
     100% {
-        @include transform(translate3d(250px, 0px, 0px));
+        @include transform(translate3d(270px, 0px, 0px));
     }
 }
