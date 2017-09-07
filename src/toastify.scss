@@ -4,8 +4,7 @@
 $toastify-width: 250px;
 $toastify-space: 10px;
 $animation-duration: 1s;
-$animation-cubic-bezier: cubic-bezier(.1,.69,0,1);
-
+$animation-cubic-bezier: cubic-bezier(.1, .69, 0, 1);
 //===============
 // MIXINS
 //===============
@@ -76,15 +75,13 @@ $animation-cubic-bezier: cubic-bezier(.1,.69,0,1);
         width: 100%;
         font-size: 1rem;
         color: white;
-        word-wrap: break-word;
-        // Animations
+        word-wrap: break-word; // Animations
         &.show-toast {
             @include animation(show-toast $animation-duration 0s $animation-cubic-bezier);
         }
         &.hide-toast {
             @include animation(hide-toast $animation-duration 0s $animation-cubic-bezier);
-        }
-        // Colors
+        } // Colors
         &.red {
             background-color: #F44336;
         }
@@ -167,10 +164,10 @@ $animation-cubic-bezier: cubic-bezier(.1,.69,0,1);
 //===============
 @include keyframes(show-toast) {
     0% {
-        @include transform(translate3d(270px, 0px, 0px));
+        @include transform(translate3d(#{ $toastify-width + (2 * $toastify-space) }, 0px, 0px));
     }
     50% {
-        @include transform(translate3d(-25px, 0px, 0px));
+        @include transform(translate3d(-#{ $toastify-width / 10 }, 0px, 0px));
     }
     100% {
         @include transform(translate3d(0px, 0px, 0px));
@@ -182,6 +179,6 @@ $animation-cubic-bezier: cubic-bezier(.1,.69,0,1);
         @include transform(translate3d(0px, 0px, 0px));
     }
     100% {
-        @include transform(translate3d(270px, 0px, 0px));
+        @include transform(translate3d(#{ $toastify-width + (2 * $toastify-space) }, 0px, 0px));
     }
 }
