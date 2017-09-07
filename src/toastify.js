@@ -290,7 +290,7 @@ function Toastify(options) {
 				}, type.duration);
 			// Adds an event lister to toast when the hide animation
 			// end to remove the toast from the DOM.
-			utilities.onAnimationEnded(type.animations.hide, newToastEl, toasts.removeToast);
+			utilities.onAnimationEnded(type.animations.hide, newToastEl, toasts.removeToast.bind(toasts));
 		},
 		/**
 		 * Removes given toast from the DOM.
