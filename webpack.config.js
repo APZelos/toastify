@@ -8,15 +8,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'sass-loader'
-            })
-        }]
+        rules: [
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                })
+            }
+        ]
     },
     plugins: [
-      new ExtractTextPlugin('toastify.css'),
+        new ExtractTextPlugin('toastify.css')
     ]
 };
