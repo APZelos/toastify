@@ -1,7 +1,7 @@
 {
   "name": "toastify",
   "version": "1.0.0",
-  "description": "A lightweight and easy to customize toast library.",
+  "description": "A lightweight and easy to customize notification library.",
   "main": "./src/toastify.js",
   "directories": {
     "doc": "docs"
