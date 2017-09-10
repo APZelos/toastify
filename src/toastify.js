@@ -357,8 +357,8 @@ function Toastify(options) {
 			// adds it to the pending list.
 			if (!utilities.showToast()) {
 				this.pending.add({
-					type,
-					message
+					type: type,
+					message: message
 				});
 				return;
 			}

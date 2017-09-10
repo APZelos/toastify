@@ -1,12 +1,13 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: {
         toastify: ['./src/toastify.js', './src/toastify.scss']
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].min.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -27,5 +28,6 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('[name].min.css'),
+        new UglifyJSPlugin()
     ]
 };
