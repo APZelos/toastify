@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -28,6 +29,9 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('[name].min.css'),
-        new UglifyJSPlugin()
+        new UglifyJSPlugin(),
+        new ZipPlugin({
+            filename: 'toastify.zip'
+        })
     ]
 };
