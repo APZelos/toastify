@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/APZelos/toastify/issues"
   },
-  "homepage": "https://github.com/APZelos/toastify#readme"
+  "homepage": "https://github.com/APZelos/toastify#readme",
+  "devDependencies": {
+    "webpack": "^3.5.6"
+  }
 }
