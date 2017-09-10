@@ -1,0 +1,22 @@
+{
+  "name": "toastify",
+  "version": "1.0.0",
+  "description": "A lightweight and easy to customize toast library.",
+  "main": "./src/toastify.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/APZelos/toastify.git"
+  },
+  "author": "APZelos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/APZelos/toastify/issues"
+  },
+  "homepage": "https://github.com/APZelos/toastify#readme"
+}
