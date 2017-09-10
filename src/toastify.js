@@ -1,3 +1,5 @@
+import './toastify.scss';
+
 "use strict";
 
 /**
