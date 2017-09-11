@@ -471,3 +471,14 @@ function Toastify(options) {
 		}
 	}
 }
+
+// Gets global object.
+var global = typeof global !== 'undefined' ?
+	global :
+	typeof self !== 'undefined' ?
+	self :
+	typeof window !== 'undefined' ?
+	window : {}
+
+// Exposes Toastify to global object.
+global.Toastify = Toastify;
