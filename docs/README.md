@@ -10,8 +10,8 @@ A lightweight and easy to customize notification library.
     * [Toast Defaults](#toast-defaults)
     * [Toast Types](#toast-types)
     * [Animation Libraries](#animation-libraries)
-5. [TODO](#todo)
-6. [Toastifying](#toastifying)
+5. [Toastifying](#toastifying)
+6. [TODO](#todo)
 7. [License](#license)
 
 ## Installation
